@@ -1,6 +1,8 @@
 # Owl 应用运行配置
 application:
   subdomain: owl
+  public_path:
+    - /
   # HTTP 服务路由
   upstreams:
     - location: /
