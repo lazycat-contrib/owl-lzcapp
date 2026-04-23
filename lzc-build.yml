@@ -1,0 +1,10 @@
+# Owl 构建配置
+manifest: ./lzc-manifest.yml
+pkgout: ./
+icon: ./icon.png  # 需要 512x512 PNG 图标
+
+# 可选：内嵌镜像构建
+# images:
+#   - alias: owl
+#     dockerfile: ./Dockerfile
+#     context: ./
