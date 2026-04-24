@@ -12,7 +12,7 @@ application:
   injects:
     - id: login-autofill
       when:
-        - /api/auth/login # 用户指定的登录页路径
+        - /
       do:
         - src: builtin://simple-inject-password
           params:
