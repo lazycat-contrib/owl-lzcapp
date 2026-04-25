@@ -41,8 +41,8 @@ services:
 
   # Owl 主应用（External）
   owl:
-    # czyt/owl:v0.1.24
-    image: registry.lazycat.cloud/czyt/czyt/owl:e231c98c9807e38e
+    # czyt/owl:v0.1.25
+    image: registry.lazycat.cloud/czyt/czyt/owl:2acb9d4e084a93bd
     depends_on:
       - redis
     environment:
