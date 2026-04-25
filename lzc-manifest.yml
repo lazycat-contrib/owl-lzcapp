@@ -41,8 +41,8 @@ services:
 
   # Owl 主应用（External）
   owl:
-    # czyt/owl:v0.1.23
-    image: registry.lazycat.cloud/czyt/czyt/owl:80c84ced4e519054
+    # czyt/owl:v0.1.24
+    image: registry.lazycat.cloud/czyt/czyt/owl:e231c98c9807e38e
     depends_on:
       - redis
     environment:
@@ -59,6 +59,9 @@ services:
       - OWL_UPLOADS_DIR=/app/data/uploads
       - OWL_LIBRARY_DIR={{.U.library_dir}}
       - OWL_DB_PATH=/app/data/data.db
+      # 数据库配置 - 根据类型选择
+      - OWL_DB_TYPE={{.U.db_type}}
+      - OWL_DB_DSN={{.U.db_dsn}}
       # 前端跨域
       - OWL_FRONTEND_ORIGIN=*
       # Redis 配置 - Internal 服务自动连接
