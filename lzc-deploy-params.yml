@@ -71,6 +71,21 @@ params:
     default_value: "owl:mdx:search"
     optional: true
 
+  # 词典缓存配置
+  - id: warm_dictionaries
+    type: bool
+    name: "Warm Dictionaries"
+    description: "Preload all enabled dictionaries on startup. Recommended to keep OFF for large dictionary collections to avoid slow restart and high base memory usage."
+    default_value: false
+    optional: true
+
+  - id: max_loaded_dictionaries
+    type: string
+    name: "Max Loaded Dictionaries"
+    description: "Maximum number of fully loaded dictionaries kept in process. Default 8; set to 0 for unlimited cache."
+    default_value: "8"
+    optional: true
+
 locales:
   zh:
     db_type:
@@ -103,3 +118,9 @@ locales:
     redis_search_key_prefix:
       name: "搜索键前缀"
       description: "Redis 搜索键前缀"
+    warm_dictionaries:
+      name: "预加载词典"
+      description: "启动时预加载所有已启用词典。大词典库建议保持关闭，避免重启慢和基础内存占用过高。"
+    max_loaded_dictionaries:
+      name: "最大加载词典数"
+      description: "进程内最多保留的完整已加载词典数量。默认 8；设为 0 表示不限制缓存。"

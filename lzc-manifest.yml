@@ -41,8 +41,8 @@ services:
 
   # Owl 主应用（External）
   owl:
-    # czyt/owl:v0.1.25
-    image: registry.lazycat.cloud/czyt/czyt/owl:2acb9d4e084a93bd
+    # czyt/owl:v0.1.27
+    image: registry.lazycat.cloud/czyt/czyt/owl:08d072a78349f58e
     depends_on:
       - redis
     environment:
@@ -54,6 +54,8 @@ services:
       - OWL_BOOTSTRAP_ADMIN={{.U.bootstrap_admin}}
       - OWL_ADMIN_USERNAME={{.U.admin_username}}
       - OWL_ADMIN_PASSWORD={{.U.admin_password}}
+      - OWL_WARM_DICTIONARIES={{.U.warm_dictionaries}}
+      - OWL_MAX_LOADED_DICTIONARIES={{.U.max_loaded_dictionaries}}
       # 数据目录
       - OWL_DATA_DIR=/app/data
       - OWL_UPLOADS_DIR=/app/data/uploads
