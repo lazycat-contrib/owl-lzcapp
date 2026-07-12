@@ -1,0 +1,33 @@
+version: 1
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/owl.lpk
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: owl
+build:
+  run_buildscript: false
+images:
+  - id: owl
+    target: service
+    service: owl
+    source: czyt/owl
+    channel: stable
+    tag_regex: '^v?[0-9]+\.[0-9]+\.[0-9]+$'
+    delivery:
+      mode: lazycat
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Owl词典
+    summary: 支持 MDX/MDD 文件的 Web 词典应用
+
