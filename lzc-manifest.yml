@@ -7,7 +7,6 @@ application:
   upstreams:
     - location: /
       backend: http://owl:8080/
-
   # 免密登录配置 - 自动填充管理员密码
   injects:
     - id: login-autofill
@@ -18,7 +17,6 @@ application:
           params:
             user: "{{ .U.admin_username }}"
             password: "{{ .U.admin_password }}"
-
 services:
   # Redis 搜索索引服务（Internal）
   redis:
@@ -38,10 +36,10 @@ services:
       start_period: 30s
     binds:
       - /lzcapp/var/redis:/data
-
   # Owl 主应用（External）
   owl:
     # czyt/owl:v0.1.28
+    # upstream: czyt/owl:v0.1.28
     image: registry.lazycat.cloud/czyt/czyt/owl:9c11426bf3c8759e
     depends_on:
       - redis
